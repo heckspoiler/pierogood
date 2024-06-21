@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 import { SliceZone } from '@prismicio/react';
 import * as prismic from '@prismicio/client';
-
+import styles from './Home.module.css';
 import { createClient } from '@/prismicio';
 import { components } from '@/slices';
 
@@ -27,7 +27,7 @@ export default async function Index() {
 
   return (
     <>
-      <h1>Piero Good</h1>
+      <h1 className={styles.Title}>Piero Good</h1>
       <SliceZone slices={home.data.slices} components={components} />
     </>
   );
