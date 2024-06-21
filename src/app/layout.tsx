@@ -3,6 +3,8 @@ import { repositoryName } from '@/prismicio';
 import './globals.css';
 import './reset.css';
 
+import { createClient } from '@/prismicio';
+
 export default function RootLayout({
   children,
 }: Readonly<{
