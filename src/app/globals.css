@@ -1,14 +1,25 @@
+@font-face {
+    font-family: "Helvetica Neue Regular";
+    src: url("../../public/fonts/HelveticaNeueMedium.otf");
+}
+
+@font-face {
+    font-family: "Helvetica Neue Thin";
+    src: url("../../public/fonts/HelveticaNeueLight.otf");
+}
+
 * {
-    font-family: "fractul-variable", sans-serif;
+    font-family: var(--main-font);
     font-variation-settings: "wght" 400;
 }
 
 :root {
     font-size: 16px;
+    --title-font: "Helvetica Neue Regular";
+    --main-font: "Helvetica Neue Thin"
 }
 
 h1 {
     font-size: 1.5rem;
-    font-family: "fractul-variable", sans-serif;
-    font-variation-settings: "wght" 400;
+    font-family: var(--title-font);
 }
