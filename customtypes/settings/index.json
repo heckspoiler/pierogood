@@ -51,6 +51,14 @@
             }
           }
         }
+      },
+      "logo": {
+        "type": "Link",
+        "config": {
+          "label": "logo",
+          "placeholder": "",
+          "select": null
+        }
       }
     }
   }

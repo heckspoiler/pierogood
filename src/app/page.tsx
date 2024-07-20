@@ -5,6 +5,7 @@ import * as prismic from '@prismicio/client';
 import styles from './Home.module.css';
 import { createClient } from '@/prismicio';
 import { components } from '@/slices';
+import Navbar from './components/Navbar/Navbar';
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -27,15 +28,6 @@ export default async function Index() {
 
   return (
     <>
-      <h1 className={styles.Title}>Piero Good</h1>
-      <ul>
-        <li>
-          <a href="/about">About</a>
-        </li>
-        <li>
-          <a href="/blog">Blog</a>
-        </li>
-      </ul>
       <SliceZone slices={home.data.slices} components={components} />
     </>
   );

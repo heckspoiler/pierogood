@@ -16,11 +16,16 @@
 :root {
     font-size: 16px;
     --title-font: "Helvetica Neue Regular";
-    --main-font: "Helvetica Neue Thin"
+    --main-font: "Helvetica Neue Thin";
+    --bezier: cubic-bezier(0.39, 0.575, 0.565, 1)
+}
+
+body {
+    padding: 2em;
 }
 
 h1 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-family: var(--main-font);
     font-weight: 400;
 }
@@ -32,8 +37,5 @@ li {
 a {
     text-decoration: none;
     color: black;
-}
-
-a:hover {
-    background-color: lime;
+    transition: transform 0.2s cubic-bezier(0.39, 0.575, 0.565, 1)
 }
