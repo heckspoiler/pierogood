@@ -13,10 +13,8 @@ export default async function Navbar() {
     <nav className={styles.Navbar}>
       <ul>
         {settings.data.navigation.map((item, index) => (
-          <li>
-            <PrismicNextLink field={item.link} key={`${item.label} ${index}`}>
-              {item.label}
-            </PrismicNextLink>
+          <li key={item.label}>
+            <PrismicNextLink field={item.link}>{item.label}</PrismicNextLink>
           </li>
         ))}
       </ul>
