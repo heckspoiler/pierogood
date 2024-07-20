@@ -21,5 +21,19 @@
 
 h1 {
     font-size: 1.5rem;
-    font-family: var(--title-font);
+    font-family: var(--main-font);
+    font-weight: 400;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    background-color: lime;
 }

@@ -28,6 +28,14 @@ export default async function Index() {
   return (
     <>
       <h1 className={styles.Title}>Piero Good</h1>
+      <ul>
+        <li>
+          <a href="/about">About</a>
+        </li>
+        <li>
+          <a href="/blog">Blog</a>
+        </li>
+      </ul>
       <SliceZone slices={home.data.slices} components={components} />
     </>
   );

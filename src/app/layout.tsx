@@ -1,9 +1,31 @@
+import { Metadata, ResolvingMetadata } from 'next';
 import { PrismicPreview } from '@prismicio/next';
 import { repositoryName } from '@/prismicio';
 import './globals.css';
 import './reset.css';
-
 import { createClient } from '@/prismicio';
+
+type Props = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata(): Promise<Metadata> {
+  const client = createClient();
+
+  const page = await client.getSingle('settings');
+
+  return {
+    title: page.data.site_title || 'Piero Good',
+    description:
+      page.data.meta_description ||
+      'Piero Good | Portfolio | Institut Plapamco',
+
+    openGraph: {
+      images: [page.data.og_image.url || ''],
+    },
+  };
+}
 
 export default function RootLayout({
   children,
@@ -12,9 +34,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="stylesheet" href="https://use.typekit.net/gqd2hpl.css" />
-      </head>
       <body>{children}</body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>
