@@ -25,9 +25,24 @@ export default async function Index() {
   // The client queries content from the Prismic API
   const client = createClient();
   const home = await client.getByUID('page', 'home');
+  const projects = await client.getByType('project');
 
   return (
     <>
+      <section className={styles.Main}>
+        <section className={`${styles.ContentContainer} ${styles.ProjectList}`}>
+          <div className={styles.Projects}>
+            {projects.results.map((project) => (
+              <div key={project.id} className={styles.Project}>
+                <h2>{prismic.asText(project.data.project_name)}</h2>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className={styles.ContentContainer}>
+          <div className={styles.Images}></div>
+        </section>
+      </section>
       <SliceZone slices={home.data.slices} components={components} />
     </>
   );

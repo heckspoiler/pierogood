@@ -1,5 +1,45 @@
-.Title {
-    padding: 2rem;
+.Main {
+    height: calc(100vh - 8rem);
+    display: flex;
 }
 
-.Title h1 {}
+.ContentContainer:nth-of-type(1) {
+    width: 40%;
+    border-right: none;
+}
+
+.ContentContainer:nth-of-type(2) {
+    width: 60%;
+}
+
+
+
+.ProjectList {
+    display: flex;
+    align-items: center;
+}
+
+.Projects {
+    gap: 2rem;
+    align-items: left;
+    padding-left: 8rem;
+    flex-direction: column;
+    display: flex;
+}
+
+.Projects h2 {
+    font-size: 1rem;
+}
+
+
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {}
+
+
+
+/* Mobile */
+@media (max-width: 768px) {}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 768px) and (max-width: 1120px) {}
