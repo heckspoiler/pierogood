@@ -3,9 +3,12 @@
     display: flex;
 }
 
+.ContentContainer {
+    height: 100%;
+}
+
 .ContentContainer:nth-of-type(1) {
     width: 40%;
-    border-right: none;
 }
 
 .ContentContainer:nth-of-type(2) {
@@ -14,15 +17,20 @@
 
 
 
+/* Project List Side */
+
 .ProjectList {
     display: flex;
     align-items: center;
+    justify-content: center;
+    border-right: 0.5px solid black;
+
 }
 
 .Projects {
     gap: 1rem;
     align-items: left;
-    padding-left: 12rem;
+    padding: 1rem;
     flex-direction: column;
     display: flex;
 }
@@ -34,6 +42,7 @@
 .Project {
     display: flex;
     gap: 1rem;
+    transition: transform 0.05s cubic-bezier(0.455, 0.03, 0.515, 0.955)
 }
 
 .Project:hover {
@@ -41,15 +50,35 @@
     transform: translateX(1rem)
 }
 
-.Project:hover h2 {
+.Project:hover * {
     font-family: var(--hover-font);
 }
+
+
 
 .Project p {
     font-size: 0.5rem;
 }
 
 
+/* Image Side */
+
+
+.Images {
+    height: 100%;
+}
+
+.MainImageContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.MainImage {
+    scale: 0.5;
+}
 
 
 
