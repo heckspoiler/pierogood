@@ -22,15 +22,15 @@ export default function CursorImage({ projects }: { projects: any }) {
 
   useGSAP(() => {
     const tl = gsap.timeline();
-    tl.to({}, 0.016, {
+    tl.to({}, 0.006, {
       repeat: -1,
       onRepeat: () => {
         posX += (mouseX - posX) / 9;
         posY += (mouseY - posY) / 9;
         tl.set(cursor.current, {
           css: {
-            left: posX + 20,
-            top: posY - 140,
+            left: posX + 10,
+            top: posY - 10,
           },
         });
       },

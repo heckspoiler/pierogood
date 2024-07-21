@@ -41,13 +41,15 @@
 
 .Project {
     display: flex;
+    width: fit-content;
     gap: 1rem;
     transition: transform 0.05s cubic-bezier(0.455, 0.03, 0.515, 0.955)
 }
 
 .Project:hover {
     cursor: pointer;
-    transform: translateX(1rem)
+    transform: translateX(1rem);
+    background-color: lime;
 }
 
 .Project:hover * {
