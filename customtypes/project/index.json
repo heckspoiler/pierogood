@@ -12,6 +12,13 @@
         },
         "type": "UID"
       },
+      "index": {
+        "type": "Text",
+        "config": {
+          "label": "index",
+          "placeholder": ""
+        }
+      },
       "project_name": {
         "type": "StructuredText",
         "config": {
@@ -19,6 +26,49 @@
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "heading3"
+        }
+      },
+      "project_addon": {
+        "type": "StructuredText",
+        "config": {
+          "label": "project_addon",
+          "placeholder": "(with Collectiv Chuglu)",
+          "allowTargetBlank": true,
+          "multi": "heading4"
+        }
+      },
+      "project_date": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Project Date",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "main_image": {
+        "type": "Image",
+        "config": {
+          "label": "Main Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "images": {
+        "type": "Group",
+        "config": {
+          "label": "Images",
+          "repeat": true,
+          "fields": {
+            "project_image": {
+              "type": "Image",
+              "config": {
+                "label": "Project Image",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
         }
       },
       "slices": {

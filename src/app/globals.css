@@ -8,15 +8,22 @@
     src: url("../../public/fonts/HelveticaNeueLight.otf");
 }
 
+@font-face {
+    font-family: "Helvetica Neue Thin Italic";
+    src: url("../../public/fonts/HelveticaNeueLightItalic.otf");
+}
+
 * {
     font-family: var(--main-font);
     font-variation-settings: "wght" 400;
+    text-transform: lowercase;
 }
 
 :root {
     font-size: 16px;
     --title-font: "Helvetica Neue Regular";
     --main-font: "Helvetica Neue Thin";
+    --hover-font: "Helvetica Neue Thin Italic";
     --bezier: cubic-bezier(0.39, 0.575, 0.565, 1)
 }
 
@@ -26,8 +33,16 @@ body {
 
 h1 {
     font-size: 1.25rem;
-    font-family: var(--main-font);
+    font-family: var(--title-font);
     font-weight: 400;
+    height: fit-content;
+    width: fit-content;
+}
+
+
+h1:hover {
+    background-color: lime;
+
 }
 
 li {

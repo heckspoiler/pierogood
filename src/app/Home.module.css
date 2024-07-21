@@ -20,15 +20,23 @@
 }
 
 .Projects {
-    gap: 2rem;
+    gap: 1rem;
     align-items: left;
-    padding-left: 8rem;
+    padding-left: 12rem;
     flex-direction: column;
     display: flex;
 }
 
 .Projects h2 {
     font-size: 1rem;
+}
+
+.Project {}
+
+.Project h2:hover {
+    font-family: var(--hover-font);
+    cursor: pointer;
+    transform: translateX(1rem)
 }
 
 

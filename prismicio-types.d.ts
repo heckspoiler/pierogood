@@ -76,12 +76,38 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
+/**
+ * Item in *project → Images*
+ */
+export interface ProjectDocumentDataImagesItem {
+  /**
+   * Project Image field in *project → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.images[].project_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  project_image: prismic.ImageField<never>;
+}
+
 type ProjectDocumentDataSlicesSlice = never;
 
 /**
  * Content for project documents
  */
 interface ProjectDocumentData {
+  /**
+   * index field in *project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.index
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  index: prismic.KeyTextField;
+
   /**
    * Project Name field in *project*
    *
@@ -92,6 +118,50 @@ interface ProjectDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   project_name: prismic.RichTextField;
+
+  /**
+   * project_addon field in *project*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: (with Collectiv Chuglu)
+   * - **API ID Path**: project.project_addon
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_addon: prismic.RichTextField;
+
+  /**
+   * Project Date field in *project*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.project_date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_date: prismic.RichTextField;
+
+  /**
+   * Main Image field in *project*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.main_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  main_image: prismic.ImageField<never>;
+
+  /**
+   * Images field in *project*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.images[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<Simplify<ProjectDocumentDataImagesItem>>;
 
   /**
    * Slice Zone field in *project*
@@ -273,6 +343,7 @@ declare module "@prismicio/client" {
       PageDocumentDataSlicesSlice,
       ProjectDocument,
       ProjectDocumentData,
+      ProjectDocumentDataImagesItem,
       ProjectDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
