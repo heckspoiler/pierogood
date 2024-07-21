@@ -39,9 +39,11 @@ export default async function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        <PrismicNextLink field={settings.data.logo}>
-          <h1>{settings.data.site_title}</h1>
-        </PrismicNextLink>
+        <div className="title">
+          <PrismicNextLink field={settings.data.logo}>
+            <h1>{settings.data.site_title}</h1>
+          </PrismicNextLink>
+        </div>
         {children}
       </body>
       <PrismicPreview repositoryName={repositoryName} />

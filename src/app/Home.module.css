@@ -1,5 +1,6 @@
 .Main {
-    height: calc(100vh - 8rem);
+    height: 100vh;
+    max-height: 100vh;
     display: flex;
 }
 
