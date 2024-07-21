@@ -13,12 +13,13 @@ export default function Home({
     <>
       <section className={`${styles.ContentContainer} ${styles.ProjectList}`}>
         <div className={styles.Projects}>
-          {projects.results.map(
+          {projects.map(
             (project: {
               id: React.Key | null | undefined;
-              data: { project_name: any };
+              data: { project_name: any; index: any };
             }) => (
               <div key={project.id} className={styles.Project}>
+                <p>{project.data.index}</p>
                 <h2>{prismic.asText(project.data.project_name)}</h2>
               </div>
             )
