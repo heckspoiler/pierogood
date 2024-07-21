@@ -1,11 +1,14 @@
 .Container {
     position: absolute;
-    background-color: red;
-    height: 2rem;
-    width: 2rem;
+    /* border: 1px solid black; */
+    height: 20rem;
+    width: 20rem;
     mix-blend-mode: difference;
-    z-index: 2;
+    z-index: -2;
     user-select: none;
     pointer-events: none;
-    transform: translate(5px, 5px)
+    transform: translate(5px, 5px);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }

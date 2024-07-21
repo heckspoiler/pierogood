@@ -25,10 +25,10 @@ export default function Home({
   const setIsClicked = useStore(projectStore).setIsClicked;
   const setIsHovered = useStore(projectStore).setIsHovered;
 
-  useEffect(() => {
-    console.log(isClicked);
-    console.log(isHovered);
-  }, [isHovered]);
+  // useEffect(() => {
+  //   console.log(isClicked);
+  //   console.log(isHovered);
+  // }, [isHovered]);
 
   return (
     <>
