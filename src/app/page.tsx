@@ -33,10 +33,17 @@ export default async function Index() {
     return bIndex - aIndex;
   });
 
+  const hoverImages = projects.map((project) => project.data.hover_image.url);
+
   return (
     <>
       <section className={styles.Main}>
-        <Home projects={projects} styles={styles} home={home} />
+        <Home
+          projects={projects}
+          styles={styles}
+          home={home}
+          hoverImages={hoverImages}
+        />
       </section>
       <SliceZone slices={home.data.slices} components={components} />
     </>

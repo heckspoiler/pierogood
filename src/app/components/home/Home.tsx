@@ -15,10 +15,12 @@ import CursorImage from '../cursorImage/CursorImage';
 export default function Home({
   styles,
   projects,
+  hoverImages,
 }: {
   styles: any;
   projects: any;
   home: any;
+  hoverImages: any;
 }) {
   const isHovered = useStore(projectStore).isHovered;
   const isClicked = useStore(projectStore).isClicked;
@@ -33,7 +35,7 @@ export default function Home({
   return (
     <>
       <section className={`${styles.ContentContainer} ${styles.ProjectList}`}>
-        <CursorImage projects={projects} />
+        <CursorImage projects={projects} hoverImages={hoverImages} />
         <div className={styles.Projects}>
           {projects.map(
             (project: {

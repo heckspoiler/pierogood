@@ -4,14 +4,19 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { projectStore } from '../../../../stores/projectStore';
-import Image from 'next/image';
 import styles from './CursorImage.module.css';
 
 import { useStore } from 'zustand';
 
 gsap.registerPlugin(useGSAP);
 
-export default function CursorImage({ projects }: { projects: any }) {
+export default function CursorImage({
+  projects,
+  hoverImages,
+}: {
+  projects: any;
+  hoverImages: any;
+}) {
   const isHovered = useStore(projectStore).isHovered;
   const [hoveredImage, setHoveredImage] = useState('');
 
