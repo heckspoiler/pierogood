@@ -31,17 +31,22 @@ body {
     overflow: hidden;
 }
 
+.title {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 2rem 0 0 2rem;
+}
+
 .title h1 {
     font-size: 1.25rem;
     font-family: var(--title-font);
     font-weight: 400;
     height: fit-content;
     width: fit-content;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 2rem 0 0 2rem;
+
 }
+
 
 
 .title:hover h1 {
