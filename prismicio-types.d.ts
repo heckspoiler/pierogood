@@ -153,6 +153,17 @@ interface ProjectDocumentData {
   main_image: prismic.ImageField<never>;
 
   /**
+   * Hover Image field in *project*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.hover_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hover_image: prismic.ImageField<never>;
+
+  /**
    * Images field in *project*
    *
    * - **Field Type**: Group

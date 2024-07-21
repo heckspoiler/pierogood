@@ -16,7 +16,6 @@
 * {
     font-family: var(--main-font);
     font-variation-settings: "wght" 400;
-    text-transform: lowercase;
 }
 
 :root {

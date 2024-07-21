@@ -54,6 +54,14 @@
           "thumbnails": []
         }
       },
+      "hover_image": {
+        "type": "Image",
+        "config": {
+          "label": "Hover Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "images": {
         "type": "Group",
         "config": {

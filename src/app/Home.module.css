@@ -30,7 +30,7 @@
 .Projects {
     gap: 1rem;
     align-items: left;
-    padding: 1rem;
+    padding: 0.5rem;
     flex-direction: column;
     display: flex;
 }
@@ -43,13 +43,16 @@
     display: flex;
     width: fit-content;
     gap: 1rem;
+    padding: 0.25rem;
+    padding-bottom: 0;
+    /* text-transform: uppercase; */
     transition: transform 0.05s cubic-bezier(0.455, 0.03, 0.515, 0.955)
 }
 
 .Project:hover {
     cursor: pointer;
     transform: translateX(1rem);
-    background-color: lime;
+    border-bottom: 0.5px solid black;
 }
 
 .Project:hover * {
