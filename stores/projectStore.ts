@@ -2,14 +2,14 @@ import { create } from 'zustand';
 
 interface ProjectStore {
   isHovered: boolean | string;
-  setIsHovered: (isHovered: boolean) => void;
+  setIsHovered: (isHovered: string) => void;
   isClicked: boolean | string;
-  setIsClicked: (isClicked: boolean) => void;
+  setIsClicked: (isClicked: string) => void;
 }
 
 export const projectStore = create<ProjectStore>((set) => ({
-  isHovered: false,
-  setIsHovered: (isHovered: boolean | string) => set({ isHovered }),
-  isClicked: false,
-  setIsClicked: (isClicked: boolean | string) => set({ isClicked }),
+  isHovered: '',
+  setIsHovered: (isHovered: string) => set({ isHovered }),
+  isClicked: '',
+  setIsClicked: (isClicked: string) => set({ isClicked }),
 }));

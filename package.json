@@ -11,13 +11,16 @@
     "start": "next start",
     "lint": "next lint",
     "slicemachine": "start-slicemachine",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "preinstall": "node scripts/check-gsap-auth.ts",
+    "install-gsap": "npm install @gsap/react"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.1",
     "@prismicio/client": "^7.6.0",
     "@prismicio/next": "^1.6.0",
     "@prismicio/react": "^2.8.0",
-    "gsap": "^3.12.5",
+    "gsap": "npm:@gsap/shockingly@^3.12.5",
     "next": "^14.2.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -29,6 +32,7 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "concurrently": "^8.2.2",
+    "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.4",
     "slice-machine-ui": "^2.2.1",

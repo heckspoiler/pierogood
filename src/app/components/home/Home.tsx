@@ -8,6 +8,9 @@ import { useStore } from 'zustand';
 // Store Import
 
 import { projectStore } from '../../../../stores/projectStore';
+import MainImage from './MainImage';
+import ImageGrid from './ImageGrid';
+import CursorImage from '../cursorImage/CursorImage';
 
 export default function Home({
   styles,
@@ -19,16 +22,31 @@ export default function Home({
 }) {
   const isHovered = useStore(projectStore).isHovered;
   const isClicked = useStore(projectStore).isClicked;
+  const setIsClicked = useStore(projectStore).setIsClicked;
+  const setIsHovered = useStore(projectStore).setIsHovered;
+
+  useEffect(() => {
+    console.log(isClicked);
+    console.log(isHovered);
+  }, [isHovered]);
+
   return (
     <>
       <section className={`${styles.ContentContainer} ${styles.ProjectList}`}>
+        <CursorImage projects={projects} />
         <div className={styles.Projects}>
           {projects.map(
             (project: {
               id: React.Key | null | undefined;
               data: { project_name: any; index: any };
             }) => (
-              <div key={project.id} className={styles.Project}>
+              <div
+                key={project.id}
+                className={styles.Project}
+                onClick={() => setIsClicked(project.id as string)}
+                onMouseEnter={() => setIsHovered(project.id as string)}
+                onMouseLeave={() => setIsHovered('')}
+              >
                 <p>{project.data.index}</p>
                 <h2>{prismic.asText(project.data.project_name)}</h2>
               </div>
@@ -38,15 +56,11 @@ export default function Home({
       </section>
       <section className={styles.ContentContainer}>
         <div className={styles.Images}>
-          {!isHovered && !isClicked ? (
-            <div className={styles.MainImageContainer}>
-              <img
-                src="https://images.prismic.io/pierogood/Zpz8BR5LeNNTxU88_Bildschirmfoto2022-09-02um14.11.30.png?auto=format,compress"
-                alt="Fischhaut reingezoomt"
-                className={styles.MainImage}
-              />
-            </div>
-          ) : null}
+          {isClicked === '' ? (
+            <MainImage styles={styles} />
+          ) : (
+            <ImageGrid styles={styles} projects={projects} />
+          )}
         </div>
       </section>
     </>
