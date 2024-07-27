@@ -40,8 +40,10 @@ export default function ImageGrid({ projects }: { projects: any }) {
     <section className={styles.Container}>
       <div className={styles.GridContainer} ref={containerRef}>
         {projectToUse
-          ? projectToUse.data.images.map((image: any) => {
-              return <PrismicNextImage field={image.project_image} />;
+          ? projectToUse.data.images.map((image: any, index: number) => {
+              return (
+                <PrismicNextImage field={image.project_image} key={index} />
+              );
             })
           : null}
       </div>
