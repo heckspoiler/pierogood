@@ -15,14 +15,13 @@
 .Navbar ul li {
     transition: transform 0.2s var(--bezier);
     font-size: 0.8rem;
-
-
 }
 
 .Navbar ul li:hover {}
 
 .Navbar ul li a {
     padding: 0.5em;
+    background-color: white;
 }
 
 .Navbar ul li a:hover {
