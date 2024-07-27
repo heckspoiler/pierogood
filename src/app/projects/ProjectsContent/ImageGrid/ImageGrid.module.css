@@ -5,6 +5,9 @@
     overflow: hidden;
 }
 
+.GridContainer * {
+    border-radius: 0;
+}
 
 .GridContainer {
     height: 100%;
@@ -13,21 +16,35 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+
 }
+
 
 .GridContainer img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    max-height: 30rem;
 }
 
+/* For Internet Explorer and Edge */
+.GridContainer {
+    -ms-overflow-style: none;
+}
+
+.GridContainer::-ms-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.GridContainer::-ms-scrollbar-thumb {
+    background: black;
+    border-right: 5px solid #fff;
+    border-bottom: 5px solid #fff;
+}
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {}
-
-
 
 /* Mobile */
 @media (max-width: 768px) {}
