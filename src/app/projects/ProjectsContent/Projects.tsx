@@ -39,12 +39,12 @@ export default function Projects({
               }) => (
                 <div
                   key={project.id}
-                  className={styles.Project}
+                  className={`${styles.Project} ${isClicked === project.id ? styles.isActive : ''}`}
                   onClick={() => setIsClicked(project.id as string)}
                   onMouseEnter={() => setIsHovered(project.id as string)}
                   onMouseLeave={() => setIsHovered('')}
                 >
-                  <p>{project.data.index}</p>
+                  {/* <p>{project.data.index}</p> */}
                   <h2>{prismic.asText(project.data.project_name)}</h2>
                 </div>
               )
