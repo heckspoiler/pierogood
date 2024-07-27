@@ -3,13 +3,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import * as prismic from '@prismicio/client';
 
-import { useStore } from 'zustand';
-
 // Store Import
-
+import { useStore } from 'zustand';
 import { projectStore } from '../../../../stores/projectStore';
+
+// component imports
 import MainImage from '../../components/home/MainImage';
-import ImageGrid from '../ImageGrid';
+import ImageGrid from './ImageGrid/ImageGrid';
 import CursorImage from '../../components/cursorImage/CursorImage';
 
 import styles from './Projects.module.css';
@@ -56,7 +56,7 @@ export default function Projects({
             {isClicked === '' ? (
               <MainImage styles={styles} />
             ) : (
-              <ImageGrid styles={styles} projects={projects} />
+              <ImageGrid projects={projects} />
             )}
           </div>
         </section>

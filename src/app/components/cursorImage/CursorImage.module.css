@@ -7,7 +7,7 @@
     z-index: -2;
     user-select: none;
     pointer-events: none;
-    transform: translate(5px, 5px);
+    transform: translate(30px, -30px);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;

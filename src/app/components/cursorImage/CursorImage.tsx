@@ -50,7 +50,7 @@ export default function CursorImage({
   useEffect(() => {
     if (isHovered) {
       const hoveredProject = projects.find(
-        (project: { id: any }) => project.id === isHovered
+        (project: { id: string }) => project.id === isHovered
       );
 
       gsap.to(cursor.current, {

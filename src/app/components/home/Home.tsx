@@ -9,7 +9,7 @@ import { useStore } from 'zustand';
 
 import { projectStore } from '../../../../stores/projectStore';
 import MainImage from './MainImage';
-import ImageGrid from '../../projects/ImageGrid';
+import ImageGrid from '../../projects/ProjectsContent/ImageGrid/ImageGrid';
 import CursorImage from '../cursorImage/CursorImage';
 
 export default function Home({
@@ -22,11 +22,6 @@ export default function Home({
   home: any;
   hoverImages: any;
 }) {
-  const isHovered = useStore(projectStore).isHovered;
-  const isClicked = useStore(projectStore).isClicked;
-  const setIsClicked = useStore(projectStore).setIsClicked;
-  const setIsHovered = useStore(projectStore).setIsHovered;
-
   return (
     <>
       <section
