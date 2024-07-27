@@ -48,6 +48,7 @@
     gap: 1rem;
     padding: 0.25rem;
     padding-bottom: 0;
+    background-color: white;
     /* text-transform: uppercase; */
     /* transition: scale 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955) */
 }
