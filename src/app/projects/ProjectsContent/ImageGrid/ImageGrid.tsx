@@ -4,6 +4,10 @@ import { useStore } from 'zustand';
 import { projectStore } from '../../../../../stores/projectStore';
 import styles from './ImageGrid.module.css';
 import { PrismicNextImage } from '@prismicio/next';
+import { useGSAP } from '@gsap/react';
+import { gsap } from 'gsap';
+
+gsap.registerPlugin(useGSAP);
 
 export default function ImageGrid({ projects }: { projects: any }) {
   const isClicked = useStore(projectStore).isClicked;
@@ -11,11 +15,14 @@ export default function ImageGrid({ projects }: { projects: any }) {
   const [projectToUse, setProjectToUse] = useState<any>(null);
   const [imageAreas, setImageAreas] = useState<string[]>([]);
 
+  const imagesRef = useRef<(HTMLDivElement | null)[]>([]);
+
   useEffect(() => {
     if (isClicked !== '') {
-      setProjectToUse(
-        projects.find((project: { id: string }) => project.id === isClicked)
+      const newProject = projects.find(
+        (project: { id: string }) => project.id === isClicked
       );
+      setProjectToUse(newProject);
     }
   }, [isClicked, projects]);
 
@@ -38,11 +45,11 @@ export default function ImageGrid({ projects }: { projects: any }) {
       const aspect = dimensions.width / dimensions.height;
       let area;
       if (aspect > 1.5) {
-        area = 'span 1 / span 2';
+        area = 'span 1 / span 2'; // Wide image
       } else if (aspect < 0.67) {
-        area = 'span 2 / span 1';
+        area = 'span 2 / span 1'; // Tall image
       } else {
-        area = 'span 1 / span 1';
+        area = 'span 1 / span 1'; // Square-ish image
       }
       areas.push(area);
     }
@@ -59,6 +66,31 @@ export default function ImageGrid({ projects }: { projects: any }) {
     });
   };
 
+  useGSAP(
+    () => {
+      if (projectToUse) {
+        gsap.fromTo(
+          imagesRef.current,
+          { visibility: 'hidden' },
+          {
+            visibility: 'visible',
+            duration: 0.5,
+            delay: 0.3,
+            ease: 'power2.out',
+          }
+        );
+      } else {
+        gsap.to(imagesRef.current, {
+          visibility: 'hidden',
+          duration: 0.3,
+          delay: 0.5,
+          ease: 'power2.in',
+        });
+      }
+    },
+    { dependencies: [projectToUse] }
+  );
+
   return (
     <section className={styles.Container}>
       <div className={styles.GridContainer} ref={containerRef}>
@@ -67,8 +99,9 @@ export default function ImageGrid({ projects }: { projects: any }) {
             key={index}
             className={styles.ImageWrapper}
             style={{ gridArea: imageAreas[index] }}
+            ref={(el: any) => (imagesRef.current[index] = el)}
           >
-            <PrismicNextImage field={image.project_image} key={index} />
+            <PrismicNextImage field={image.project_image} />
           </div>
         ))}
       </div>

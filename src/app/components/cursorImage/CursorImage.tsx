@@ -7,18 +7,28 @@ import { projectStore } from '../../../../stores/projectStore';
 import styles from './CursorImage.module.css';
 
 import { useStore } from 'zustand';
+import { PrismicNextImage } from '@prismicio/next';
 
 gsap.registerPlugin(useGSAP);
+
+// Define a type for your project
+interface Project {
+  id: string;
+  data: {
+    hover_image: any;
+    main_image: any;
+  };
+}
 
 export default function CursorImage({
   projects,
   hoverImages,
 }: {
-  projects: any;
+  projects: Project[];
   hoverImages: any;
 }) {
   const isHovered = useStore(projectStore).isHovered;
-  const [hoveredImage, setHoveredImage] = useState('');
+  const [hoveredImage, setHoveredImage] = useState<Project | null>(null);
 
   let cursor = useRef(null);
   let posX = 0;
@@ -50,18 +60,26 @@ export default function CursorImage({
   useEffect(() => {
     if (isHovered) {
       const hoveredProject = projects.find(
-        (project: { id: string }) => project.id === isHovered
+        (project: Project) => project.id === isHovered
       );
 
-      gsap.to(cursor.current, {
-        backgroundImage: `url(${hoveredProject.data.hover_image.url ?? hoveredProject.data.main_image.url})`,
-      });
-    } else {
-      gsap.to(cursor.current, {
-        backgroundImage: 'none',
-      });
-    }
-  }, [isHovered]);
+      setHoveredImage(hoveredProject || null);
 
-  return <div className={styles.Container} ref={cursor}></div>;
+      console.log(hoveredImage?.data.main_image);
+    }
+  }, [isHovered, projects]);
+
+  return (
+    <div className={styles.Container} ref={cursor}>
+      {isHovered && hoveredImage && (
+        <PrismicNextImage
+          field={
+            hoveredImage.data?.hover_image
+              ? hoveredImage.data?.hover_image
+              : hoveredImage.data?.main_image
+          }
+        />
+      )}
+    </div>
+  );
 }
