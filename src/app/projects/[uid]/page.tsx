@@ -7,6 +7,7 @@ import { components } from '@/slices';
 
 import styles from './Project.module.css';
 import ImageGrid from '../ProjectsContent/ImageGrid/ImageGrid';
+import ProjectContent from './ProjectContent/ProjectContent';
 
 type Params = { uid: string };
 
@@ -43,6 +44,7 @@ export default async function Page({ params }: { params: Params }) {
             );
           })}
         </>
+        {/* <ProjectContent styles={styles} page={page} /> */}
       </section>
     </>
   );
