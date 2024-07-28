@@ -1,0 +1,14 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"textblock": {
+				"__TYPE__": "FieldContent",
+				"value": "express",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

@@ -79,11 +79,24 @@
           }
         }
       },
+      "project_type": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Project Type",
+          "placeholder": "Sculpture etc",
+          "allowTargetBlank": true,
+          "multi": "heading2"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "text_block": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },
