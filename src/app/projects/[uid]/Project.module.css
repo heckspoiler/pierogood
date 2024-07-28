@@ -1,0 +1,51 @@
+.Main {
+
+    min-height: 100vh;
+    padding: 12rem 4rem 4rem 4rem;
+}
+
+.TitleContainer {
+    width: fit-content;
+}
+
+.TitleContainer h2 {
+    font-weight: 800;
+    font-size: 1.2rem;
+    font-family: var(--title-font);
+}
+
+.TitleContainer h4 {
+    font-family: var(--hover-font);
+    font-size: 0.8rem;
+}
+
+.TypeContainer h2 {
+    padding: 2rem 0;
+    font-weight: 800;
+    font-size: 1rem;
+    font-family: var(--main-font);
+}
+
+.ExhibitionContainer {
+    width: fit-content;
+    padding: 2rem 0;
+    font-size: 0.8rem;
+}
+
+
+.ExhibitionPlace p {
+    font-family: var(--hover-font);
+}
+
+
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {}
+
+
+
+/* Mobile */
+@media (max-width: 768px) {}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 768px) and (max-width: 1120px) {}

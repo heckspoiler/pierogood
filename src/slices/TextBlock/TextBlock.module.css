@@ -1,0 +1,9 @@
+.TextBlock {
+    max-width: 32rem;
+    padding: 0.5rem 0;
+}
+
+.TextBlock p {
+    text-align: justify;
+    hyphens: auto;
+}

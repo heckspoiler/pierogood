@@ -13,7 +13,9 @@
     src: url("../../public/fonts/HelveticaNeueLightItalic.otf");
 }
 
-* {
+p,
+a,
+h2 {
     font-family: var(--main-font);
     font-variation-settings: "wght" 400;
 }

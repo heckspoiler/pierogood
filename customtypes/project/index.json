@@ -19,11 +19,20 @@
           "placeholder": ""
         }
       },
+      "project_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Project Title",
+          "placeholder": "Title on Project Page",
+          "allowTargetBlank": true,
+          "multi": "heading2"
+        }
+      },
       "project_name": {
         "type": "StructuredText",
         "config": {
           "label": "Project Name",
-          "placeholder": "",
+          "placeholder": "For the list on Projects",
           "allowTargetBlank": true,
           "multi": "heading3"
         }
@@ -86,6 +95,33 @@
           "placeholder": "Sculpture etc",
           "allowTargetBlank": true,
           "multi": "heading2"
+        }
+      },
+      "exhibition": {
+        "type": "Group",
+        "config": {
+          "label": "Exhibition",
+          "repeat": true,
+          "fields": {
+            "place": {
+              "type": "StructuredText",
+              "config": {
+                "label": "place",
+                "placeholder": "Ort der Ausstellung",
+                "allowTargetBlank": true,
+                "multi": "paragraph"
+              }
+            },
+            "date": {
+              "type": "StructuredText",
+              "config": {
+                "label": "date",
+                "placeholder": "Datum der Ausstellung",
+                "allowTargetBlank": true,
+                "multi": "paragraph"
+              }
+            }
+          }
         }
       },
       "slices": {

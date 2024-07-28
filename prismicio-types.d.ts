@@ -91,6 +91,31 @@ export interface ProjectDocumentDataImagesItem {
   project_image: prismic.ImageField<never>;
 }
 
+/**
+ * Item in *project → Exhibition*
+ */
+export interface ProjectDocumentDataExhibitionItem {
+  /**
+   * place field in *project → Exhibition*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Ort der Ausstellung
+   * - **API ID Path**: project.exhibition[].place
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  place: prismic.RichTextField;
+
+  /**
+   * date field in *project → Exhibition*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Datum der Ausstellung
+   * - **API ID Path**: project.exhibition[].date
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  date: prismic.RichTextField;
+}
+
 type ProjectDocumentDataSlicesSlice = TextBlockSlice;
 
 /**
@@ -109,10 +134,21 @@ interface ProjectDocumentData {
   index: prismic.KeyTextField;
 
   /**
+   * Project Title field in *project*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Title on Project Page
+   * - **API ID Path**: project.project_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  project_title: prismic.RichTextField;
+
+  /**
    * Project Name field in *project*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: For the list on Projects
    * - **API ID Path**: project.project_name
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
@@ -184,6 +220,17 @@ interface ProjectDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   project_type: prismic.RichTextField;
+
+  /**
+   * Exhibition field in *project*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.exhibition[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  exhibition: prismic.GroupField<Simplify<ProjectDocumentDataExhibitionItem>>;
 
   /**
    * Slice Zone field in *project*
@@ -477,6 +524,7 @@ declare module "@prismicio/client" {
       ProjectDocument,
       ProjectDocumentData,
       ProjectDocumentDataImagesItem,
+      ProjectDocumentDataExhibitionItem,
       ProjectDocumentDataSlicesSlice,
       ProjectsDocument,
       ProjectsDocumentData,
