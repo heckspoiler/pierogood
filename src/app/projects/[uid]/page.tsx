@@ -44,7 +44,7 @@ export default async function Page({ params }: { params: Params }) {
             );
           })}
         </>
-        {/* <ProjectContent styles={styles} page={page} /> */}
+        <ImageGrid projects={page} />
       </section>
     </>
   );
