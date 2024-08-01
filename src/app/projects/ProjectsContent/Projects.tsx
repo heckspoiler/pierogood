@@ -34,13 +34,14 @@ export default function Projects({
           <div className={styles.Projects}>
             {projects.map(
               (project: {
+                uid: React.Key | null | undefined;
                 id: React.Key | null | undefined;
                 data: { project_name: any; index: any };
               }) => (
                 <div
-                  key={project.id}
-                  className={`${styles.Project} ${isClicked === project.id ? styles.isActive : ''}`}
-                  onClick={() => setIsClicked(project.id as string)}
+                  key={project.uid}
+                  className={`${styles.Project} ${isClicked === project.uid ? styles.isActive : ''}`}
+                  onClick={() => setIsClicked(project.uid as string)}
                   onMouseEnter={() => setIsHovered(project.id as string)}
                   onMouseLeave={() => setIsHovered('')}
                 >
@@ -56,7 +57,7 @@ export default function Projects({
             {isClicked === '' ? (
               <MainImage styles={styles} />
             ) : (
-              <ImageGrid projects={projects} />
+              <ImageGrid projects={projects} project={undefined} />
             )}
           </div>
         </section>

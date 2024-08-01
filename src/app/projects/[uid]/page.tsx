@@ -8,6 +8,7 @@ import { components } from '@/slices';
 import styles from './Project.module.css';
 import ImageGrid from '../ProjectsContent/ImageGrid/ImageGrid';
 import ProjectContent from './ProjectContent/ProjectContent';
+import ProjectGrid from './ProjectContent/ProjectGrid';
 
 type Params = { uid: string };
 
@@ -20,31 +21,37 @@ export default async function Page({ params }: { params: Params }) {
   return (
     <>
       <section className={styles.Main}>
-        <div className={styles.TitleContainer}>
-          <PrismicRichText field={page.data.project_title} />
-          <PrismicRichText field={page.data.project_date} />
-          <PrismicRichText field={page.data.project_addon} />
-        </div>
+        <section className={styles.ContentContainer}>
+          <div>
+            <div className={styles.TitleContainer}>
+              <PrismicRichText field={page.data.project_title} />
+              <PrismicRichText field={page.data.project_date} />
+              <PrismicRichText field={page.data.project_addon} />
+            </div>
 
-        <div className={styles.TypeContainer}>
-          <PrismicRichText field={page.data.project_type} />
-        </div>
-        <SliceZone slices={page.data.slices} components={components} />
-        <>
-          {page.data.exhibition.map((item, index) => {
-            return (
-              <div className={styles.ExhibitionContainer} key={index}>
-                <div className={styles.ExhibitionPlace}>
-                  <PrismicRichText field={item.place} />
-                </div>
-                <div className={styles.ExhibitionDate}>
-                  <PrismicRichText field={item.date} />
-                </div>
-              </div>
-            );
-          })}
-        </>
-        <ImageGrid projects={page} />
+            <div className={styles.TypeContainer}>
+              <PrismicRichText field={page.data.project_type} />
+            </div>
+            <SliceZone slices={page.data.slices} components={components} />
+            <>
+              {page.data.exhibition.map((item, index) => {
+                return (
+                  <div className={styles.ExhibitionContainer} key={index}>
+                    <div className={styles.ExhibitionPlace}>
+                      <PrismicRichText field={item.place} />
+                    </div>
+                    <div className={styles.ExhibitionDate}>
+                      <PrismicRichText field={item.date} />
+                    </div>
+                  </div>
+                );
+              })}
+            </>
+          </div>
+        </section>
+        <section className={styles.ContentContainer}>
+          <ProjectGrid project={page} />
+        </section>
       </section>
     </>
   );

@@ -8,21 +8,34 @@ import styles from './ImageGrid.module.css';
 import { PrismicNextImage } from '@prismicio/next';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
+import { usePathname } from 'next/navigation';
 
 gsap.registerPlugin(useGSAP);
 
-export default function ImageGrid({ projects }: { projects: any }) {
+export default function ImageGrid({
+  projects,
+  project,
+}: {
+  projects: any;
+  project: any;
+}) {
   const isClicked = useStore(projectStore).isClicked;
   const containerRef = useRef<HTMLDivElement>(null);
   const [projectToUse, setProjectToUse] = useState<any>(null);
   const [imageAreas, setImageAreas] = useState<string[]>([]);
-
+  const pathname = usePathname();
   const imagesRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    if (project && project.project.url === pathname) {
+      setProjectToUse(project.project);
+    }
+  }, [pathname, project]);
 
   useEffect(() => {
     if (isClicked !== '') {
       const newProject = projects.find(
-        (project: { id: string }) => project.id === isClicked
+        (project: { uid: string }) => project.uid === isClicked
       );
       setProjectToUse(newProject);
     }
