@@ -25,7 +25,6 @@ export default async function Index() {
   const client = createClient();
   const home = await client.getByUID('page', 'home');
   const fetchedProjects = await client.getAllByType('project');
-  console.log(fetchedProjects[0].data.index);
 
   const projects = fetchedProjects.sort((a, b) => {
     let aIndex = a.data.index as any;

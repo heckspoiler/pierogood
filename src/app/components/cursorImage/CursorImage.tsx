@@ -64,8 +64,6 @@ export default function CursorImage({
       );
 
       setHoveredImage(hoveredProject || null);
-
-      console.log(hoveredImage?.data.main_image);
     }
   }, [isHovered, projects]);
 

@@ -29,8 +29,6 @@ export default function ImageGrid({
 
   const [firstPath, secondPath, thirdPath] = pathname.split('/');
 
-  console.log(thirdPath);
-
   useEffect(() => {
     if (project && project.project.url === pathname) {
       setProjectToUse(project.project);
@@ -38,18 +36,13 @@ export default function ImageGrid({
   }, [pathname, project]);
 
   useEffect(() => {
-    console.log('isClicked:', isClicked);
-    console.log('projects:', projects);
-
     if (isClicked !== '' && projects) {
       const newProject = projects.find(
         (project: { uid: string }) => project.uid === isClicked
       );
-      console.log('newProject:', newProject);
       if (newProject) {
         setProjectToUse(newProject);
       } else {
-        console.log('No matching project found for uid:', isClicked);
       }
     } else if (isClicked !== '') {
       console.log('Projects array is undefined or empty');
