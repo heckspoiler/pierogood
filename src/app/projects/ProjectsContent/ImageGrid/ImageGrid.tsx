@@ -9,6 +9,7 @@ import { PrismicNextImage } from '@prismicio/next';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 gsap.registerPlugin(useGSAP);
 
@@ -26,6 +27,10 @@ export default function ImageGrid({
   const pathname = usePathname();
   const imagesRef = useRef<(HTMLDivElement | null)[]>([]);
 
+  const [firstPath, secondPath, thirdPath] = pathname.split('/');
+
+  console.log(thirdPath);
+
   useEffect(() => {
     if (project && project.project.url === pathname) {
       setProjectToUse(project.project);
@@ -33,11 +38,21 @@ export default function ImageGrid({
   }, [pathname, project]);
 
   useEffect(() => {
-    if (isClicked !== '') {
+    console.log('isClicked:', isClicked);
+    console.log('projects:', projects);
+
+    if (isClicked !== '' && projects) {
       const newProject = projects.find(
         (project: { uid: string }) => project.uid === isClicked
       );
-      setProjectToUse(newProject);
+      console.log('newProject:', newProject);
+      if (newProject) {
+        setProjectToUse(newProject);
+      } else {
+        console.log('No matching project found for uid:', isClicked);
+      }
+    } else if (isClicked !== '') {
+      console.log('Projects array is undefined or empty');
     }
   }, [isClicked, projects]);
 
@@ -120,6 +135,11 @@ export default function ImageGrid({
           </div>
         ))}
       </div>
+      {projectToUse && thirdPath !== projectToUse.uid && (
+        <div className={styles.Link}>
+          <Link href={`/projects/${projectToUse.uid}`}>See more</Link>
+        </div>
+      )}
     </section>
   );
 }

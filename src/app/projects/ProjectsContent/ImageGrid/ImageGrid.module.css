@@ -3,6 +3,7 @@
     width: 100%;
     padding: 4rem 0rem;
     overflow: hidden;
+
 }
 
 .GridContainer {
@@ -12,6 +13,16 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    position: relative;
+}
+
+.Link {
+    background-color: white;
+    position: fixed;
+    bottom: 4rem;
+    right: 2rem;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
 }
 
 .ImageWrapper {
@@ -40,6 +51,8 @@
     border-right: 5px solid #fff;
     border-bottom: 5px solid #fff;
 }
+
+
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {}

@@ -13,6 +13,7 @@ import ImageGrid from './ImageGrid/ImageGrid';
 import CursorImage from '../../components/cursorImage/CursorImage';
 
 import styles from './Projects.module.css';
+import Link from 'next/link';
 
 export default function Projects({
   projects,
