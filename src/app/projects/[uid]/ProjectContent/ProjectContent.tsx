@@ -8,7 +8,7 @@ export default function ProjectContent(styles: any, page: any) {
   const projects = page.data.project;
   return (
     <section className={styles.Main}>
-      <ImageGrid projects={projects} />
+      <ImageGrid projects={projects} project={undefined} />
     </section>
   );
 }

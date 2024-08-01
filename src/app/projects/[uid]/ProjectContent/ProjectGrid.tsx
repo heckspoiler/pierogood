@@ -5,6 +5,6 @@ import React from 'react';
 import styles from './ProjectGrid.module.css';
 import ImageGrid from '../../ProjectsContent/ImageGrid/ImageGrid';
 
-export default function ProjectGrid(project: any) {
+export default function ProjectGrid(project: any, projects: any) {
   return <ImageGrid project={project} projects={undefined} />;
 }
