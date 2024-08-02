@@ -11,7 +11,6 @@ import { PrismicNextImage } from '@prismicio/next';
 
 gsap.registerPlugin(useGSAP);
 
-// Define a type for your project
 interface Project {
   id: string;
   data: {

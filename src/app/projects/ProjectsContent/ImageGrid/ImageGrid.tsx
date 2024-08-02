@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import * as prismic from '@prismicio/client';
 import { useStore } from 'zustand';
 import { projectStore } from '../../../../../stores/projectStore';
 import styles from './ImageGrid.module.css';
