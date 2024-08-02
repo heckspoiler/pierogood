@@ -4,12 +4,241 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Item in *About → Personal Information*
+ */
+export interface AboutDocumentDataPersonalInformationItem {
+  /**
+   * Personal Information Field field in *About → Personal Information*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.personal_information[].personal_information_field
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  personal_information_field: prismic.RichTextField;
+}
+
+/**
+ * Item in *About → Contact Information*
+ */
+export interface AboutDocumentDataContactInformationItem {
+  /**
+   * Contact Information Field field in *About → Contact Information*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.contact_information[].contact_information_field
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  contact_information_field: prismic.RichTextField;
+}
+
+/**
+ * Item in *About → Education Information*
+ */
+export interface AboutDocumentDataEducationInformationItem {
+  /**
+   * Education Date field in *About → Education Information*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.education_information[].education_date
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  education_date: prismic.RichTextField;
+
+  /**
+   * Education Type field in *About → Education Information*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.education_information[].education_type
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  education_type: prismic.RichTextField;
+}
+
+/**
+ * Item in *About → Award Information*
+ */
+export interface AboutDocumentDataAwardInformationItem {
+  /**
+   * Award Date field in *About → Award Information*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.award_information[].award_date
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  award_date: prismic.RichTextField;
+
+  /**
+   * Award Type field in *About → Award Information*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.award_information[].award_type
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  award_type: prismic.RichTextField;
+}
+
+/**
+ * Item in *About → Residency Information*
+ */
+export interface AboutDocumentDataResidencyInformationItem {
+  /**
+   * Residency Date field in *About → Residency Information*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.residency_information[].residency_date
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  residency_date: prismic.RichTextField;
+
+  /**
+   * Residency Type field in *About → Residency Information*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.residency_information[].residency_type
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  residency_type: prismic.RichTextField;
+}
+
+/**
+ * Item in *About → Extra Information*
+ */
+export interface AboutDocumentDataExtraInformationItem {
+  /**
+   * Extra Information Text field in *About → Extra Information*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.extra_information[].extra_information_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  extra_information_text: prismic.RichTextField;
+
+  /**
+   * Extra Information Link Text field in *About → Extra Information*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.extra_information[].extra_information_link_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  extra_information_link_text: prismic.RichTextField;
+
+  /**
+   * Extra Information Link field in *About → Extra Information*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.extra_information[].extra_information_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  extra_information_link: prismic.LinkField;
+}
+
 type AboutDocumentDataSlicesSlice = never;
 
 /**
  * Content for About documents
  */
 interface AboutDocumentData {
+  /**
+   * CV Title field in *About*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.cv_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  cv_title: prismic.RichTextField;
+
+  /**
+   * Personal Information field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.personal_information[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  personal_information: prismic.GroupField<
+    Simplify<AboutDocumentDataPersonalInformationItem>
+  >;
+
+  /**
+   * Contact Information field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.contact_information[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  contact_information: prismic.GroupField<
+    Simplify<AboutDocumentDataContactInformationItem>
+  >;
+
+  /**
+   * Education Information field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.education_information[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  education_information: prismic.GroupField<
+    Simplify<AboutDocumentDataEducationInformationItem>
+  >;
+
+  /**
+   * Award Information field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.award_information[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  award_information: prismic.GroupField<
+    Simplify<AboutDocumentDataAwardInformationItem>
+  >;
+
+  /**
+   * Residency Information field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.residency_information[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  residency_information: prismic.GroupField<
+    Simplify<AboutDocumentDataResidencyInformationItem>
+  >;
+
+  /**
+   * Extra Information field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.extra_information[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  extra_information: prismic.GroupField<
+    Simplify<AboutDocumentDataExtraInformationItem>
+  >;
+
   /**
    * Slice Zone field in *About*
    *
@@ -582,6 +811,12 @@ declare module "@prismicio/client" {
     export type {
       AboutDocument,
       AboutDocumentData,
+      AboutDocumentDataPersonalInformationItem,
+      AboutDocumentDataContactInformationItem,
+      AboutDocumentDataEducationInformationItem,
+      AboutDocumentDataAwardInformationItem,
+      AboutDocumentDataResidencyInformationItem,
+      AboutDocumentDataExtraInformationItem,
       AboutDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,

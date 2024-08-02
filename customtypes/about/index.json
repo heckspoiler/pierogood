@@ -1,14 +1,179 @@
 {
   "format": "page",
   "id": "about",
+  "label": "About",
+  "repeatable": false,
+  "status": true,
   "json": {
     "Main": {
+      "cv_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "CV Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "personal_information": {
+        "type": "Group",
+        "config": {
+          "label": "Personal Information",
+          "repeat": true,
+          "fields": {
+            "personal_information_field": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Personal Information Field",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph"
+              }
+            }
+          }
+        }
+      },
+      "contact_information": {
+        "type": "Group",
+        "config": {
+          "label": "Contact Information",
+          "repeat": true,
+          "fields": {
+            "contact_information_field": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Contact Information Field",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph"
+              }
+            }
+          }
+        }
+      },
+      "education_information": {
+        "type": "Group",
+        "config": {
+          "label": "Education Information",
+          "repeat": true,
+          "fields": {
+            "education_date": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Education Date",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "heading6"
+              }
+            },
+            "education_type": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Education Type",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph"
+              }
+            }
+          }
+        }
+      },
+      "award_information": {
+        "type": "Group",
+        "config": {
+          "label": "Award Information",
+          "repeat": true,
+          "fields": {
+            "award_date": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Award Date",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "heading6"
+              }
+            },
+            "award_type": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Award Type",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph"
+              }
+            }
+          }
+        }
+      },
+      "residency_information": {
+        "type": "Group",
+        "config": {
+          "label": "Residency Information",
+          "repeat": true,
+          "fields": {
+            "residency_date": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Residency Date",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "heading6"
+              }
+            },
+            "residency_type": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Residency Type",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph"
+              }
+            }
+          }
+        }
+      },
+      "extra_information": {
+        "type": "Group",
+        "config": {
+          "label": "Extra Information",
+          "repeat": true,
+          "fields": {
+            "extra_information_text": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Extra Information Text",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph"
+              }
+            },
+            "extra_information_link_text": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Extra Information Link Text",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "extra_information_link": {
+              "type": "Link",
+              "config": {
+                "label": "Extra Information Link",
+                "placeholder": "",
+                "allowTargetBlank": false,
+                "select": null
+              }
+            }
+          }
+        }
+      },
       "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
         "config": {
           "choices": {}
-        },
-        "fieldset": "Slice Zone",
-        "type": "Slices"
+        }
       }
     },
     "SEO & Metadata": {
@@ -38,8 +203,5 @@
         "type": "Image"
       }
     }
-  },
-  "label": "About",
-  "repeatable": false,
-  "status": true
+  }
 }
