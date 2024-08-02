@@ -1,0 +1,31 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"gdf": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Quis deserunt amet non duis excepteur ut quis minim aliqua mollit nostrud anim consectetur minim."
+						}
+					}
+				]
+			},
+			"asdf": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Duis velit qui est laboris ullamco quis Lorem irure magna. Velit ut voluptate aliqua excepteur ullamco minim proident consequat. Incididunt velit incididunt aliqua do labore veniam."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

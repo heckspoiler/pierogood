@@ -144,6 +144,31 @@ export interface AboutDocumentDataExtraInformationItem {
   extra_information_link: prismic.LinkField;
 }
 
+/**
+ * Item in *About → Show Year*
+ */
+export interface AboutDocumentDataShowYearItem {
+  /**
+   * Year field in *About → Show Year*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.show_year[].year
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  year: prismic.RichTextField;
+
+  /**
+   * Shows field in *About → Show Year*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.show_year[].shows
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  shows: prismic.RichTextField;
+}
+
 type AboutDocumentDataSlicesSlice = never;
 
 /**
@@ -238,6 +263,28 @@ interface AboutDocumentData {
   extra_information: prismic.GroupField<
     Simplify<AboutDocumentDataExtraInformationItem>
   >;
+
+  /**
+   * Shows Title field in *About*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.shows_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  shows_title: prismic.RichTextField;
+
+  /**
+   * Show Year field in *About*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.show_year[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  show_year: prismic.GroupField<Simplify<AboutDocumentDataShowYearItem>>;
 
   /**
    * Slice Zone field in *About*
@@ -799,6 +846,61 @@ export type TextBlockSlice = prismic.SharedSlice<
   TextBlockSliceVariation
 >;
 
+/**
+ * Primary content in *YearShowSlice → Default → Primary*
+ */
+export interface YearShowSliceSliceDefaultPrimary {
+  /**
+   * gdf field in *YearShowSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: year_show_slice.default.primary.gdf
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  gdf: prismic.RichTextField;
+
+  /**
+   * asdf field in *YearShowSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: year_show_slice.default.primary.asdf
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  asdf: prismic.RichTextField;
+}
+
+/**
+ * Default variation for YearShowSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type YearShowSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<YearShowSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *YearShowSlice*
+ */
+type YearShowSliceSliceVariation = YearShowSliceSliceDefault;
+
+/**
+ * YearShowSlice Shared Slice
+ *
+ * - **API ID**: `year_show_slice`
+ * - **Description**: YearShowSlice
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type YearShowSliceSlice = prismic.SharedSlice<
+  "year_show_slice",
+  YearShowSliceSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -817,6 +919,7 @@ declare module "@prismicio/client" {
       AboutDocumentDataAwardInformationItem,
       AboutDocumentDataResidencyInformationItem,
       AboutDocumentDataExtraInformationItem,
+      AboutDocumentDataShowYearItem,
       AboutDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
@@ -837,6 +940,10 @@ declare module "@prismicio/client" {
       TextBlockSliceDefaultPrimary,
       TextBlockSliceVariation,
       TextBlockSliceDefault,
+      YearShowSliceSlice,
+      YearShowSliceSliceDefaultPrimary,
+      YearShowSliceSliceVariation,
+      YearShowSliceSliceDefault,
     };
   }
 }

@@ -69,10 +69,19 @@
     background-color: lime;
 }
 
-.Education h6 {
+.Education h6,
+.Shows h6 {
     font-family: var(--hover-font);
     font-size: 1rem;
     padding: 0 !important;
+}
+
+.Shows {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
 }
 
 

@@ -4,4 +4,5 @@ import dynamic from "next/dynamic";
 
 export const components = {
   text_block: dynamic(() => import("./TextBlock")),
+  year_show_slice: dynamic(() => import("./YearShowSlice")),
 };

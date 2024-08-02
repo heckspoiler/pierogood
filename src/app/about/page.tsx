@@ -80,7 +80,7 @@ export default async function Page() {
               </div>
             );
           })}
-        </div>{' '}
+        </div>
         <div className={styles.EducationInformation}>
           {page.data.extra_information.map((item, index) => {
             return (
@@ -96,7 +96,21 @@ export default async function Page() {
       </section>
       <section className={styles.RightContainer}>
         <div className={styles.TitleContainer}>
-          <PrismicRichText field={page.data.cv_title} />
+          <PrismicRichText field={page.data.shows_title} />
+        </div>
+        <div>
+          {page.data.show_year.map((item, index) => {
+            return (
+              <div className={styles.Shows} key={index}>
+                <div>
+                  <PrismicRichText field={item.year} />
+                </div>
+                <div>
+                  <PrismicRichText field={item.shows} />
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
     </section>

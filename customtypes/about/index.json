@@ -168,6 +168,42 @@
           }
         }
       },
+      "shows_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Shows Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "show_year": {
+        "type": "Group",
+        "config": {
+          "label": "Show Year",
+          "repeat": true,
+          "fields": {
+            "year": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Year",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "heading6"
+              }
+            },
+            "shows": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Shows",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph"
+              }
+            }
+          }
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
