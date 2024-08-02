@@ -6,8 +6,6 @@ import { createClient } from '@/prismicio';
 import { components } from '@/slices';
 
 import styles from './Project.module.css';
-import ImageGrid from '../ProjectsContent/ImageGrid/ImageGrid';
-import ProjectContent from './ProjectContent/ProjectContent';
 import ProjectGrid from './ProjectContent/ProjectGrid';
 
 type Params = { uid: string };
@@ -22,7 +20,7 @@ export default async function Page({ params }: { params: Params }) {
     <>
       <section className={styles.Main}>
         <section className={styles.ContentContainer}>
-          <div>
+          <div className={styles.LeftContent}>
             <div className={styles.TitleContainer}>
               <PrismicRichText field={page.data.project_title} />
               <PrismicRichText field={page.data.project_date} />
@@ -33,7 +31,7 @@ export default async function Page({ params }: { params: Params }) {
               <PrismicRichText field={page.data.project_type} />
             </div>
             <SliceZone slices={page.data.slices} components={components} />
-            <>
+            <div className={styles.Exhibitions}>
               {page.data.exhibition.map((item, index) => {
                 return (
                   <div className={styles.ExhibitionContainer} key={index}>
@@ -46,7 +44,7 @@ export default async function Page({ params }: { params: Params }) {
                   </div>
                 );
               })}
-            </>
+            </div>
           </div>
         </section>
         <section className={styles.ContentContainer}>

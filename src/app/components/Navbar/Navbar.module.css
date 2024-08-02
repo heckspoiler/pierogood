@@ -15,17 +15,48 @@
 .Navbar ul li {
     transition: transform 0.2s var(--bezier);
     font-size: 0.8rem;
+    background-color: white;
+    padding: 0.25rem;
 }
 
 .Navbar ul li:hover {}
 
 .Navbar ul li a {
-    padding: 0.5em;
-    background-color: white;
+    border-bottom: 1px solid transparent;
 }
 
-.Navbar ul li a:hover {
+.Navbar ul li:hover {
     background-color: lime;
+}
+
+.IsPlapamco:nth-of-type(3) {
+    animation: float 4s ease-in-out infinite
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+.floating-element {
+    animation: float 6s ease-in-out infinite;
 }
 
 /* Enable hover only on non-touch devices */
