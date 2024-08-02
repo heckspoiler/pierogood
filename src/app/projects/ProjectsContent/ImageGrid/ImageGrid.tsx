@@ -127,9 +127,13 @@ export default function ImageGrid({
           </div>
         ))}
       </div>
-      {projectToUse && thirdPath !== projectToUse.uid && (
+      {projectToUse && (
         <div className={styles.Link}>
-          <Link href={`/projects/${projectToUse.uid}`}>See more</Link>
+          {thirdPath !== projectToUse.uid ? (
+            <Link href={`/projects/${projectToUse.uid}`}>See more</Link>
+          ) : (
+            <Link href={`/projects`}>Go back</Link>
+          )}
         </div>
       )}
     </section>

@@ -1,9 +1,6 @@
 import React from 'react';
 import styles from './Navbar.module.css';
-import Image from 'next/image';
 import { createClient } from '@/prismicio';
-import { PrismicImage } from '@prismicio/react';
-import { PrismicNextLink } from '@prismicio/next';
 import NavbarContent from './NavbarContent/NavbarContent';
 
 export default async function Navbar() {
