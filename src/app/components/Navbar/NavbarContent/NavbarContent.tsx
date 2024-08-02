@@ -25,7 +25,8 @@ export default function NavbarContent({
   useEffect(() => {
     if (
       third === 'wasteland-plant-magnificent' ||
-      third === 'plant-breeding-club'
+      third === 'plant-breeding-club' ||
+      third === '700-wunschbohnen'
     ) {
       setIsPlapamco(true);
     } else {
