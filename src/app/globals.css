@@ -73,7 +73,15 @@ a {
 
 
 /* Mobile */
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+    :root {
+        font-size: 14px;
+        --title-font: "Helvetica Neue Regular";
+        --main-font: "Helvetica Neue Thin";
+        --hover-font: "Helvetica Neue Thin Italic";
+        --bezier: cubic-bezier(0.39, 0.575, 0.565, 1)
+    }
+}
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 768px) and (max-width: 1120px) {}

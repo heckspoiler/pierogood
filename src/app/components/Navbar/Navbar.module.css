@@ -4,6 +4,7 @@
     height: fit-content;
     bottom: 0;
     left: 0;
+    z-index: 10;
 }
 
 .Navbar ul {
@@ -67,7 +68,39 @@
 
 
 /* Mobile */
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+    .Navbar {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+    }
+
+    .Navbar ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+        width: 100%;
+    }
+
+    .Navbar ul li {
+        transition: transform 0.2s var(--bezier);
+        font-size: 0.8rem;
+        background-color: white;
+        padding: 0.25rem;
+    }
+
+    .Navbar ul li:hover {}
+
+    .Navbar ul li a {
+        border-bottom: 1px solid transparent;
+    }
+
+    .Navbar ul li:active {
+        background-color: lime;
+    }
+
+}
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 768px) and (max-width: 1120px) {}

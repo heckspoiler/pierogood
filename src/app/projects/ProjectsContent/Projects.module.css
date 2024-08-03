@@ -62,7 +62,7 @@
 .isActive {
     transform: translateX(1rem);
     background-color: lime;
-    scale: 1.3;
+    scale: 1.1;
 }
 
 .Project:hover * {
@@ -102,7 +102,82 @@
 
 
 /* Mobile */
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+    .Main {
+        height: 100vh;
+        max-height: 100vh;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .ContentContainer {}
+
+    .ContentContainer:nth-of-type(1) {
+        width: 100%;
+        height: 35vh;
+    }
+
+    .ContentContainer:nth-of-type(2) {
+        width: 100%;
+        overflow: scroll;
+        height: 65vh;
+        padding-bottom: 4rem;
+    }
+
+    /* Project List Side */
+
+    .ProjectList {
+        display: flex;
+        padding-top: 4rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Projects {
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .Projects h2 {
+        font-size: 0.8rem;
+        font-weight: 400;
+
+    }
+
+    .Project {
+        display: flex;
+        width: fit-content;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        padding: 0;
+        padding-bottom: 0;
+        /* text-transform: uppercase; */
+        /* transition: scale 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955) */
+    }
+
+    .Project:hover {
+        cursor: pointer;
+        transform: translateX(0);
+        background-color: lime;
+    }
+
+    .isActive {
+        transform: translateX(0);
+        background-color: lime;
+        scale: 1.1;
+    }
+
+    .Project:hover * {
+        font-family: var(--hover-font);
+    }
+
+    .Project p {
+        font-size: 0.5rem;
+    }
+
+}
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 768px) and (max-width: 1120px) {}

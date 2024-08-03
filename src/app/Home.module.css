@@ -18,54 +18,6 @@
 
 
 
-/* Project List Side */
-
-.ProjectList {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* border-right: 0.3px solid black; */
-
-}
-
-.Projects {
-    gap: 1rem;
-    align-items: left;
-    padding: 0.5rem;
-    flex-direction: column;
-    display: flex;
-}
-
-.Projects h2 {
-    font-size: 1rem;
-}
-
-.Project {
-    display: flex;
-    width: fit-content;
-    gap: 1rem;
-    padding: 0.25rem;
-    padding-bottom: 0;
-    /* text-transform: uppercase; */
-    transition: transform 0.05s cubic-bezier(0.455, 0.03, 0.515, 0.955)
-}
-
-.Project:hover {
-    cursor: pointer;
-    transform: translateX(1rem);
-    border-bottom: 0.5px solid black;
-}
-
-.Project:hover * {
-    font-family: var(--hover-font);
-}
-
-
-
-.Project p {
-    font-size: 0.5rem;
-}
-
 
 /* Image Side */
 
@@ -94,7 +46,48 @@
 
 
 /* Mobile */
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+
+    .Main {
+        height: 100vh;
+        max-height: 100vh;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .ContentContainer {}
+
+    .ContentContainer:nth-of-type(1) {
+        width: 100%;
+        height: 35vh;
+    }
+
+    .ContentContainer:nth-of-type(2) {
+        width: 100%;
+        overflow: scroll;
+        height: 65vh;
+        padding-bottom: 4rem;
+    }
+
+    .Images {
+        height: 100%;
+    }
+
+    .MainImageContainer {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .MainImage {
+        scale: 0.5;
+    }
+
+
+
+}
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 768px) and (max-width: 1120px) {}
