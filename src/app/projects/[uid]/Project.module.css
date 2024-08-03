@@ -17,7 +17,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: fit-content;
+    height: fit-content
 }
 
 .ContentContainer:nth-of-type(2) {
@@ -78,7 +78,73 @@
 
 
 /* Mobile */
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+    .Main {
+        display: grid;
+        position: relative;
+        grid-template-rows: 1fr 1fr;
+        padding-bottom: 4rem;
+    }
+
+    .ContentContainer {
+        height: fit-content;
+    }
+
+    .ContentContainer:nth-of-type(1) {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-top: 8rem;
+        top: 0;
+        left: 0;
+
+    }
+
+    .ContentContainer:nth-of-type(2) {
+        width: 100%;
+        padding-bottom: 4rem;
+    }
+
+    .LeftContent {
+        gap: 0.5rem;
+    }
+
+
+
+    .TitleContainer h2 {
+        font-size: 1.1rem;
+    }
+
+
+    .TypeContainer h2 {
+        padding: 0rem 0;
+        font-weight: 800;
+        font-size: 0.8rem;
+        font-family: var(--main-font);
+    }
+
+    .Exhibitions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .ExhibitionContainer {
+        width: fit-content;
+        font-size: 0.8rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .ExhibitionPlace p {
+        font-family: var(--hover-font);
+    }
+
+}
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 768px) and (max-width: 1120px) {}

@@ -38,6 +38,8 @@ body {
     top: 0;
     left: 0;
     padding: 2rem 0 0 2rem;
+    z-index: 100;
+
 }
 
 .title h1 {
@@ -46,7 +48,6 @@ body {
     font-weight: 400;
     height: fit-content;
     width: fit-content;
-
 }
 
 
@@ -81,6 +82,33 @@ a {
         --hover-font: "Helvetica Neue Thin Italic";
         --bezier: cubic-bezier(0.39, 0.575, 0.565, 1)
     }
+
+    body {
+        top: 0;
+        left: 0;
+        padding: 0 1em;
+        overflow: scroll;
+    }
+
+    .title {
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 1rem 0 1rem 1rem;
+        z-index: 100;
+        background-color: white;
+        width: 100vw;
+
+    }
+
+    .title h1 {
+        font-size: 1.25rem;
+        font-family: var(--title-font);
+        font-weight: 400;
+        height: fit-content;
+        width: fit-content;
+    }
+
 }
 
 /* Tablet and Smaller Desktop */
