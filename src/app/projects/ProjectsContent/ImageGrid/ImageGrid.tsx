@@ -32,7 +32,11 @@ export default function ImageGrid({
     if (project && project.project.url === pathname) {
       setProjectToUse(project.project);
     }
-  }, [pathname, project]);
+  }, [pathname, project, projectToUse]);
+
+  useEffect(() => {
+    console.log('adfshsdfjkdsjkö', projectToUse);
+  }, [pathname, projectToUse]);
 
   useEffect(() => {
     if (isClicked !== '' && projects) {
@@ -41,7 +45,6 @@ export default function ImageGrid({
       );
       if (newProject) {
         setProjectToUse(newProject);
-      } else {
       }
     } else if (isClicked !== '') {
       console.log('Projects array is undefined or empty');

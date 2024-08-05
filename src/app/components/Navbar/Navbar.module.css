@@ -34,7 +34,9 @@
     animation: float 4s ease-in-out infinite
 }
 
-.NavbarItem {}
+.Animated {
+    animation: float 4s ease-in-out infinite
+}
 
 @keyframes float {
     0% {
