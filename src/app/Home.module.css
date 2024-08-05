@@ -47,8 +47,7 @@
 
 /* Mobile */
 @media (max-width: 768px) {
-
-    h1 {}
+    /* test */
 
     .Main {
         height: 100svh;
