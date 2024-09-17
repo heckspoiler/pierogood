@@ -175,9 +175,19 @@ export default function ImageGrid({
             backgroundColor: 'rgba(255, 255, 255, 1)',
           },
           button: {
-            color: `${isMobile ? 'white' : 'black'}`,
             boxShadow: 'none',
             filter: 'none',
+            '--yarl__color_button_active': 'black',
+          },
+          toolbar: {
+            '--yarl__color_button': 'black',
+            '--yarl__color_button_active': 'black',
+          },
+          navigationNext: {
+            '--yarl__color_button': isMobile ? 'white' : 'black',
+          },
+          navigationPrev: {
+            '--yarl__color_button': isMobile ? 'white' : 'black',
           },
         }}
       />
