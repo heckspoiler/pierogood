@@ -35,10 +35,6 @@ export default function ImageGrid({
   }, [pathname, project, projectToUse]);
 
   useEffect(() => {
-    console.log('adfshsdfjkdsjkö', projectToUse);
-  }, [pathname, projectToUse]);
-
-  useEffect(() => {
     if (isClicked !== '' && projects) {
       const newProject = projects.find(
         (project: { uid: string }) => project.uid === isClicked
@@ -119,16 +115,18 @@ export default function ImageGrid({
   return (
     <section className={styles.Container}>
       <div className={styles.GridContainer} ref={containerRef}>
-        {projectToUse?.data.images.map((image: any, index: number) => (
-          <div
-            key={index}
-            className={styles.ImageWrapper}
-            style={{ gridArea: imageAreas[index] }}
-            ref={(el: any) => (imagesRef.current[index] = el)}
-          >
-            <PrismicNextImage field={image.project_image} />
-          </div>
-        ))}
+        {projectToUse?.data.images
+          .slice(0, !thirdPath ? 2 : projectToUse.length)
+          .map((image: any, index: number) => (
+            <div
+              key={index}
+              className={styles.ImageWrapper}
+              style={{ gridArea: imageAreas[index] }}
+              ref={(el: any) => (imagesRef.current[index] = el)}
+            >
+              <PrismicNextImage field={image.project_image} />
+            </div>
+          ))}
       </div>
       {projectToUse && (
         <div className={styles.Link}>
