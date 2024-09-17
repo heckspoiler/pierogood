@@ -80,11 +80,16 @@
         padding-bottom: 4rem;
     }
 
-    .Images {
+    .MainImageContainer {
         height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
     }
 
-    .MainImageContainer {
+    .Images {
         height: 100%;
         width: 100%;
         display: flex;
@@ -93,8 +98,13 @@
     }
 
     .MainImage {
-        scale: 0.5;
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+        object-position: center;
+        scale: 0.6;
     }
+
 
 
 
