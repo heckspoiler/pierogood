@@ -31,6 +31,15 @@ export default function ImageGrid({
   const [isOpen, setIsOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const [firstPath, secondPath, thirdPath] = pathname.split('/');
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  }, []);
 
   const lightboxImages =
     projectToUse?.data.images.map((image: any) => ({
@@ -166,7 +175,7 @@ export default function ImageGrid({
             backgroundColor: 'rgba(255, 255, 255, 1)',
           },
           button: {
-            color: 'black',
+            color: `${isMobile ? 'white' : 'black'}`,
             boxShadow: 'none',
             filter: 'none',
           },

@@ -29,6 +29,10 @@
     overflow: visible;
 }
 
+.ImageWrapper:hover {
+    cursor: pointer;
+}
+
 .ImageWrapper img {
     width: 100%;
     height: 100%;
