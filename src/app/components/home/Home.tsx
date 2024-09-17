@@ -1,26 +1,20 @@
-'use client';
-
-import React, { useEffect, useState, useRef } from 'react';
-import * as prismic from '@prismicio/client';
-
-import { useStore } from 'zustand';
+import React from 'react';
 
 // Store Import
 
-import { projectStore } from '../../../../stores/projectStore';
 import MainImage from './MainImage';
-import ImageGrid from '../../projects/ProjectsContent/ImageGrid/ImageGrid';
-import CursorImage from '../cursorImage/CursorImage';
 
 export default function Home({
   styles,
   projects,
   hoverImages,
+  mainImage,
 }: {
   styles: any;
   projects: any;
   home: any;
   hoverImages: any;
+  mainImage: any;
 }) {
   return (
     <>
@@ -29,7 +23,7 @@ export default function Home({
       ></section>
       <section className={styles.ContentContainer}>
         <div className={styles.Images}>
-          <MainImage styles={styles} />
+          <MainImage styles={styles} mainImage={mainImage} />
         </div>
       </section>
     </>

@@ -341,6 +341,38 @@ interface AboutDocumentData {
 export type AboutDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, "about", Lang>;
 
+/**
+ * Content for Main Image documents
+ */
+interface MainImageDocumentData {
+  /**
+   * Main Image field in *Main Image*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_image.main_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  main_image: prismic.ImageField<never>;
+}
+
+/**
+ * Main Image document from Prismic
+ *
+ * - **API ID**: `main_image`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MainImageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<MainImageDocumentData>,
+    "main_image",
+    Lang
+  >;
+
 type PageDocumentDataSlicesSlice = never;
 
 /**
@@ -796,6 +828,7 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | AboutDocument
+  | MainImageDocument
   | PageDocument
   | ProjectDocument
   | ProjectsDocument
@@ -921,6 +954,8 @@ declare module "@prismicio/client" {
       AboutDocumentDataExtraInformationItem,
       AboutDocumentDataShowYearItem,
       AboutDocumentDataSlicesSlice,
+      MainImageDocument,
+      MainImageDocumentData,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,

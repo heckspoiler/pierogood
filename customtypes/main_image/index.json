@@ -1,0 +1,19 @@
+{
+  "format": "custom",
+  "id": "main_image",
+  "label": "Main Image",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "main_image": {
+        "type": "Image",
+        "config": {
+          "label": "Main Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

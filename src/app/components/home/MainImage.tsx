@@ -1,10 +1,17 @@
 import React from 'react';
 
-export default function MainImage({ styles }: { styles: any }) {
+export default async function MainImage({
+  styles,
+  mainImage,
+}: {
+  styles: any;
+  mainImage: any;
+}) {
+  console.log(mainImage.results[0].data.main_image?.url);
   return (
     <div className={styles.MainImageContainer}>
       <img
-        src="https://images.prismic.io/pierogood/Zpz8BR5LeNNTxU88_Bildschirmfoto2022-09-02um14.11.30.png?auto=format,compress"
+        src={mainImage.results[0].data.main_image?.url}
         alt="Fischhaut reingezoomt"
         className={styles.MainImage}
       />

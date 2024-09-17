@@ -22,9 +22,6 @@
 /* Image Side */
 
 
-.Images {
-    height: 100%;
-}
 
 .MainImageContainer {
     height: 100%;
@@ -34,9 +31,18 @@
     align-items: center;
 }
 
-.MainImage {
-    scale: 0.5;
+.Images {
+    height: 100%;
 }
+
+
+.MainImage {
+    height: 100%;
+    width: auto;
+    scale: 0.4;
+}
+
+
 
 
 
