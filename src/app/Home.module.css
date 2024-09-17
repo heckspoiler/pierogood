@@ -27,19 +27,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    /* This prevents image overflow */
 }
 
 .Images {
     height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 
 .MainImage {
-    height: 100%;
-    width: auto;
-    scale: 0.4;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+    scale: 0.6;
 }
-
 
 
 

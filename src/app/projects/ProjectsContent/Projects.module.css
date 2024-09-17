@@ -79,11 +79,17 @@
 /* Image Side */
 
 
-.Images {
+.MainImageContainer {
     height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* This prevents image overflow */
 }
 
-.MainImageContainer {
+.Images {
     height: 100%;
     width: 100%;
     display: flex;
@@ -91,16 +97,15 @@
     align-items: center;
 }
 
-.Images {
-    height: 100%;
-}
-
-
 .MainImage {
-    height: 100%;
-    width: auto;
-    scale: 0.4;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+    scale: 0.6;
 }
+
+
 
 
 /* Enable hover only on non-touch devices */
