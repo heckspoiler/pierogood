@@ -10,6 +10,9 @@ import { gsap } from 'gsap';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
+
 gsap.registerPlugin(useGSAP);
 
 export default function ImageGrid({
@@ -25,8 +28,15 @@ export default function ImageGrid({
   const [imageAreas, setImageAreas] = useState<string[]>([]);
   const pathname = usePathname();
   const imagesRef = useRef<(HTMLDivElement | null)[]>([]);
-
+  const [isOpen, setIsOpen] = useState(false);
+  const [index, setIndex] = useState(0);
   const [firstPath, secondPath, thirdPath] = pathname.split('/');
+
+  const lightboxImages =
+    projectToUse?.data.images.map((image: any) => ({
+      src: image.project_image.url,
+      alt: image.project_image.alt || '',
+    })) || [];
 
   useEffect(() => {
     if (project && project.project.url === pathname) {
@@ -58,6 +68,11 @@ export default function ImageGrid({
       calculateImageAreas();
     }
   }, [projectToUse]);
+
+  const projectMap = projectToUse?.data.images.slice(
+    0,
+    !thirdPath ? 2 : projectToUse.length
+  );
 
   const calculateImageAreas = async () => {
     const areas: string[] = [];
@@ -123,6 +138,10 @@ export default function ImageGrid({
               className={styles.ImageWrapper}
               style={{ gridArea: imageAreas[index] }}
               ref={(el: any) => (imagesRef.current[index] = el)}
+              onClick={() => {
+                setIndex(index);
+                setIsOpen(true);
+              }}
             >
               <PrismicNextImage field={image.project_image} />
             </div>
@@ -137,6 +156,22 @@ export default function ImageGrid({
           )}
         </div>
       )}
+      <Lightbox
+        open={isOpen}
+        close={() => setIsOpen(false)}
+        index={index}
+        slides={lightboxImages}
+        styles={{
+          container: {
+            backgroundColor: 'rgba(255, 255, 255, 1)',
+          },
+          button: {
+            color: 'black',
+            boxShadow: 'none',
+            filter: 'none',
+          },
+        }}
+      />
     </section>
   );
 }
