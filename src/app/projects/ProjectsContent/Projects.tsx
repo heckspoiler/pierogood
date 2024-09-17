@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
+import React from 'react';
 import * as prismic from '@prismicio/client';
 
 // Store Import
@@ -13,7 +13,6 @@ import ImageGrid from './ImageGrid/ImageGrid';
 import CursorImage from '../../components/cursorImage/CursorImage';
 
 import styles from './Projects.module.css';
-import Link from 'next/link';
 
 export default function Projects({
   projects,
@@ -46,7 +45,6 @@ export default function Projects({
                   onMouseEnter={() => setIsHovered(project.id as string)}
                   onMouseLeave={() => setIsHovered('')}
                 >
-                  {/* <p>{project.data.index}</p> */}
                   <h2>{prismic.asText(project.data.project_name)}</h2>
                 </div>
               )
@@ -55,7 +53,7 @@ export default function Projects({
         </section>
         <section className={styles.ContentContainer}>
           <div className={styles.Images}>
-            {isClicked === '' ? (
+            {isClicked === '' && <MainImage styles={styles} /> ? (
               <MainImage styles={styles} />
             ) : (
               <ImageGrid projects={projects} project={undefined} />

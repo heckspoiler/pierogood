@@ -91,8 +91,15 @@
     align-items: center;
 }
 
+.Images {
+    height: 100%;
+}
+
+
 .MainImage {
-    scale: 0.5;
+    height: 100%;
+    width: auto;
+    scale: 0.4;
 }
 
 
