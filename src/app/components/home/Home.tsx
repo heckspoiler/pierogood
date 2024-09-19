@@ -3,7 +3,6 @@ import React from 'react';
 // Store Import
 
 import MainImage from './MainImage';
-import MainImageContent from './MainImageContent';
 
 export default function Home({
   styles,

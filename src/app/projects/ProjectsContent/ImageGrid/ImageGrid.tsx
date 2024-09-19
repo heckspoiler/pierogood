@@ -62,7 +62,6 @@ export default function ImageGrid({
         setProjectToUse(newProject);
       }
     } else if (isClicked !== '') {
-      console.log('Projects array is undefined or empty');
     }
   }, [isClicked, projects]);
 
