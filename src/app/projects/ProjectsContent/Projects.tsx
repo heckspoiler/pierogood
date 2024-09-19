@@ -17,9 +17,11 @@ import styles from './Projects.module.css';
 export default function Projects({
   projects,
   hoverImages,
+  mainImage,
 }: {
   projects: any;
   hoverImages: any;
+  mainImage: any;
 }) {
   const isHovered = useStore(projectStore).isHovered;
   const isClicked = useStore(projectStore).isClicked;
@@ -53,8 +55,10 @@ export default function Projects({
         </section>
         <section className={styles.ContentContainer}>
           <div className={styles.Images}>
-            {isClicked === '' && <MainImage styles={styles} /> ? (
-              <MainImage styles={styles} />
+            {isClicked === '' && (
+              <MainImage styles={styles} mainImage={mainImage} />
+            ) ? (
+              <MainImage styles={styles} mainImage={mainImage} />
             ) : (
               <ImageGrid projects={projects} project={undefined} />
             )}

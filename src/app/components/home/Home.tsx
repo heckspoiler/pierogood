@@ -3,14 +3,14 @@ import React from 'react';
 // Store Import
 
 import MainImage from './MainImage';
+import MainImageContent from './MainImageContent';
 
 export default function Home({
   styles,
+  mainImage,
 }: {
   styles: any;
-  projects: any;
-  home: any;
-  hoverImages: any;
+  mainImage: any;
 }) {
   return (
     <>
@@ -19,7 +19,7 @@ export default function Home({
       ></section>
       <section className={styles.ContentContainer}>
         <div className={styles.Images}>
-          <MainImage styles={styles} />
+          <MainImage styles={styles} mainImage={mainImage} />
         </div>
       </section>
     </>

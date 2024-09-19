@@ -8,9 +8,9 @@ import Projects from './ProjectsContent/Projects';
 
 export default async function Page() {
   const client = createClient();
-  const page = await client.getSingle('projects');
 
   const fetchedProjects = await client.getAllByType('project');
+  const mainImage = await client.getByType('main_image');
 
   const projects = fetchedProjects.sort((a, b) => {
     let aIndex = a.data.index as any;
@@ -20,7 +20,13 @@ export default async function Page() {
 
   const hoverImages = projects.map((project) => project.data.hover_image.url);
 
-  return <Projects projects={projects} hoverImages={hoverImages} />;
+  return (
+    <Projects
+      projects={projects}
+      hoverImages={hoverImages}
+      mainImage={mainImage}
+    />
+  );
 
   // return <SliceZone slices={page.data.slices} components={components} />;
 }

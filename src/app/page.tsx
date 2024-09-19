@@ -25,24 +25,12 @@ export default async function Index() {
   const client = createClient();
   const home = await client.getByUID('page', 'home');
   const fetchedProjects = await client.getAllByType('project');
-
-  const projects = fetchedProjects.sort((a, b) => {
-    let aIndex = a.data.index as any;
-    let bIndex = b.data.index as any;
-    return bIndex - aIndex;
-  });
-
-  const hoverImages = projects.map((project) => project.data.hover_image.url);
+  const mainImage = await client.getByType('main_image');
 
   return (
     <>
       <section className={styles.Main}>
-        <Home
-          projects={projects}
-          styles={styles}
-          home={home}
-          hoverImages={hoverImages}
-        />
+        <Home styles={styles} mainImage={mainImage} />
       </section>
       <SliceZone slices={home.data.slices} components={components} />
     </>
